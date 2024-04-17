@@ -1,5 +1,6 @@
 textract
 streamlit
+streamlit-secrets
 google-generativeai
 python-dotenv
 PyMuPDF

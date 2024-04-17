@@ -2,14 +2,24 @@ import streamlit as st
 import google.generativeai as genai
 import os
 import fitz
+from streamlit.secrets import Secrets
 
 
 from dotenv import load_dotenv
 import json
 
-load_dotenv()
+# load_dotenv()
 
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+# genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+
+# Load the secrets
+secrets = Secrets()
+
+# Access the secret API key
+google_api_key = secrets['google_gemini_api']['GOOGLE_API_KEY']
+
+genai.configure(api_key= google_api_key)
+
 
 def get_gemini_response(input,pdf_cotent,prompt):
     # model=genai.GenerativeModel('gemini-pro-vision')
