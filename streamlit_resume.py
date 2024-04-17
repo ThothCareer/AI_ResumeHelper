@@ -7,9 +7,15 @@ import fitz
 from dotenv import load_dotenv
 import json
 
-load_dotenv()
+# load_dotenv()
 
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+# genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+
+st.write("google_api",st.secrets["GOOGLE_API_KEY"])
+
+genai.configure(api_key="google_api")
+
+
 
 def get_gemini_response(input,pdf_cotent,prompt):
     # model=genai.GenerativeModel('gemini-pro-vision')
