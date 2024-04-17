@@ -11,6 +11,8 @@ import json
 
 # genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
+st.set_page_config(page_title="ATS Resume EXpert")
+
 st.write("google_api",st.secrets["GOOGLE_API_KEY"])
 
 genai.configure(api_key="google_api")
@@ -58,7 +60,7 @@ def input_pdf_setup(uploaded_file,filename):
 
 ## Streamlit App
 
-st.set_page_config(page_title="ATS Resume EXpert")
+
 st.header("ATS Tracking System")
 input_text=st.text_area("Job Description: ",key="input")
 uploaded_file=st.file_uploader("Upload your resume(PDF)...",type=["pdf"])
