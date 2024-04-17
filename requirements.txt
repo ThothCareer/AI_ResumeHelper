@@ -1,5 +1,0 @@
-textract
-streamlit
-google-generativeai
-python-dotenv
-PyMuPDF
