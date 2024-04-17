@@ -13,9 +13,9 @@ import json
 
 st.set_page_config(page_title="ATS Resume EXpert")
 
-st.write("google_api",st.secrets["GOOGLE_API_KEY"])
+# st.write("google_api",st.secrets["GOOGLE_API_KEY"])
 
-genai.configure(api_key="google_api")
+genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 
 
 
