@@ -1,0 +1,10 @@
+# Ignore virtual environment directories
+venv/
+
+
+# Ignore .env where it stores the API key
+.env
+
+
+# Ignore viscose directories
+.vscode/
