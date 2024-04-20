@@ -2,6 +2,7 @@ import streamlit as st
 import google.generativeai as genai
 import os
 import fitz
+from pypdf import PdfReader
 
 
 from dotenv import load_dotenv
@@ -23,10 +24,10 @@ def get_gemini_response(input,pdf_cotent,prompt):
     # model=genai.GenerativeModel('gemini-pro-vision')
     model=genai.GenerativeModel('gemini-1.0-pro-001')
 
-    print('get gemini step 1 works')
+    # print('get gemini step 1 works')
     # print(pdf_content)
     response=model.generate_content([input,pdf_content,prompt])
-    print('get gemini step 2 works')
+    # print('get gemini step 2 works')
 
     return response.text
 
@@ -34,10 +35,10 @@ def get_gemini_response(input,pdf_cotent,prompt):
 def extract_text(file_path):
  
     text = ""
-    doc = fitz.open(file_path)
-    for page in doc:
-        text += page.get_text()
-    doc.close()
+    doc = PdfReader(file_path)
+    
+    for page in doc.pages:
+        text += page.extract_text()
     return text
 
 
@@ -46,8 +47,8 @@ def input_pdf_setup(uploaded_file,filename):
     if filename.endswith('.pdf') or filename.endswith('.docx'):
         try:
             extracted_text = extract_text(uploaded_file)
-            print(f"Extracted text from {uploaded_file}:")
-            print(extracted_text)
+            # print(f"Extracted text from {uploaded_file}:")
+            # print(extracted_text)
             print("=" * 50)
 
             return extracted_text
@@ -81,17 +82,15 @@ submit3 = st.button("Percentage match & Final Evaluation")
 
 input_prompt1 = """
  You are an experienced HR with tech exprience in the field of biotechnology and pharmaceutical industry,your task is to review the provided resume against the job description. 
-  Please share your professional evaluation on whether the candidate's profile aligns with the role. 
- Highlight the strengths and weaknesses of the applicant in relation to the specified job requirements.
+  Please share your professional and objective evaluation on whether the candidate's profile aligns with the role. 
+ Highlight the strengths and weaknesses of the candidate in relation to the specified job requirements. Please be harsh and sharp. Please note the candidate is an individual and avoid using they/them.
 """
 
 input_prompt2 = """
- Act as an experienced application tracking system,  create a table of keywords in skills and tools based on the job description.
-Create a 2nd column labeling those keywords depending on whether they were found in this resume. Write the response in 2 columns. Proceed in a step-wise manner
+ Act as an advanced application tracking system, analyze the provided job description and create of a table summarizing all the keywords for core technical and soft skills;
+Based on the first table, create a second table labeling those keywords depending on whether they were found in this resume. Write the response in 3 columns.
 
 """
-
-#  and in the field of biotechnology and pharmaceutical industry 
 
 input_prompt3 = """
 You are an skilled ATS (Applicant Tracking System) scanner with a deep understanding of biotechnology and pharmaceutical industry and ATS functionality, 
