@@ -8,3 +8,7 @@ venv/
 
 # Ignore viscose directories
 .vscode/
+
+
+# Ignore .streamlit directories
+.streamlit/

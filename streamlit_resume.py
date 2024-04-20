@@ -5,16 +5,10 @@ import fitz
 from pypdf import PdfReader
 
 
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 import json
 
-# load_dotenv()
-
-# genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
-
 st.set_page_config(page_title="ATS Resume EXpert")
-
-# st.write("google_api",st.secrets["GOOGLE_API_KEY"])
 
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 
@@ -24,10 +18,7 @@ def get_gemini_response(input,pdf_cotent,prompt):
     # model=genai.GenerativeModel('gemini-pro-vision')
     model=genai.GenerativeModel('gemini-1.0-pro-001')
 
-    # print('get gemini step 1 works')
-    # print(pdf_content)
     response=model.generate_content([input,pdf_content,prompt])
-    # print('get gemini step 2 works')
 
     return response.text
 
@@ -80,23 +71,13 @@ submit2 = st.button("How many keywords are covered in my resume")
 
 submit3 = st.button("Percentage match & Final Evaluation")
 
-input_prompt1 = """
- You are an experienced HR with tech exprience in the field of biotechnology and pharmaceutical industry,your task is to review the provided resume against the job description. 
-  Please share your professional and objective evaluation on whether the candidate's profile aligns with the role. 
- Highlight the strengths and weaknesses of the candidate in relation to the specified job requirements. Please be harsh and sharp. Please note the candidate is an individual and avoid using they/them.
-"""
 
-input_prompt2 = """
- Act as an advanced application tracking system, analyze the provided job description and create of a table summarizing all the keywords for core technical and soft skills;
-Based on the first table, create a second table labeling those keywords depending on whether they were found in this resume. Write the response in 3 columns.
+input_prompt1 = st.secrets["input_prompt1"]
 
-"""
+input_prompt2 = st.secrets["input_prompt2"]
 
-input_prompt3 = """
-You are an skilled ATS (Applicant Tracking System) scanner with a deep understanding of biotechnology and pharmaceutical industry and ATS functionality, 
-your task is to evaluate the resume against the provided job description. give me the percentage of match if the resume matches
-the job description. First the output should come as percentage and then keywords missing and last final thoughts.
-"""
+input_prompt3 = st.secrets["input_prompt3"]
+
 
 if submit1:
     if uploaded_file is not None:

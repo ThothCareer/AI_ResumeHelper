@@ -1,6 +1,5 @@
-textract
 streamlit
 google-generativeai
-python-dotenv
-PyMuPDF
+# python-dotenv
+
 pypdf
