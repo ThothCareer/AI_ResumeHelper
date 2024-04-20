@@ -1,16 +1,12 @@
 import streamlit as st
 import google.generativeai as genai
-import os
+# import os
 from pypdf import PdfReader
+# import json
 
-
-# from dotenv import load_dotenv
-import json
-
-st.set_page_config(page_title="ATS Resume EXpert")
+st.set_page_config(page_title="AI Resume Assistant")
 
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
-
 
 
 def get_gemini_response(input,pdf_cotent,prompt):
@@ -52,8 +48,9 @@ def input_pdf_setup(uploaded_file,filename):
 ## Streamlit App
 
 
-st.header("ATS Tracking System")
-input_text=st.text_area("Job Description: ",key="input")
+st.header("AI Resume Helper")
+st.subheader("Powered by Google Gemini Pro | Developed by Paul C")
+input_text=st.text_area("Paste the Job Description: ",key="input")
 uploaded_file=st.file_uploader("Upload your resume(PDF)...",type=["pdf"])
 
 
@@ -66,7 +63,7 @@ if uploaded_file is not None:
 
 submit1 = st.button("Tell Me About the Resume")
 
-submit2 = st.button("How many keywords are covered in my resume")
+submit2 = st.button("Keywords (Not) in Resume?")
 
 submit3 = st.button("Percentage match & Final Evaluation")
 
