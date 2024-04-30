@@ -1,8 +1,6 @@
 import streamlit as st
 import google.generativeai as genai
-# import os
 from pypdf import PdfReader
-# import json
 
 st.set_page_config(page_title="AI Resume Assistant")
 
@@ -10,7 +8,6 @@ genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 
 
 def get_gemini_response(input,pdf_cotent,prompt):
-    # model=genai.GenerativeModel('gemini-pro-vision')
     model=genai.GenerativeModel('gemini-1.0-pro-001')
 
     response=model.generate_content([input,pdf_content,prompt])
@@ -43,7 +40,6 @@ def input_pdf_setup(uploaded_file,filename):
     else:
         raise FileNotFoundError("No file uploaded")
 
-# streamlit_app.py
 
 import hmac
 import streamlit as st
@@ -55,6 +51,9 @@ def check_password():
     def login_form():
         """Form with widgets to collect user information"""
         with st.form("Credentials"):
+            st.header("Welcome to the AI Resume Helper")
+            # st.subheader("Powered by Google Gemini Pro | Developed by Paul C")
+            st.subheader("Please use the login credentials provided by Paul")
             st.text_input("Username", key="username")
             st.text_input("Password", type="password", key="password")
             st.form_submit_button("Log in", on_click=password_entered)
