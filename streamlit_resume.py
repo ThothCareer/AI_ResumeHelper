@@ -1,6 +1,7 @@
 import streamlit as st
 import google.generativeai as genai
 from pypdf import PdfReader
+import hmac
 
 st.set_page_config(page_title="AI Resume Assistant")
 
@@ -41,10 +42,7 @@ def input_pdf_setup(uploaded_file,filename):
         raise FileNotFoundError("No file uploaded")
 
 
-import hmac
-import streamlit as st
-
-
+#Authentication 
 def check_password():
     """Returns `True` if the user had a correct password."""
 
@@ -119,7 +117,6 @@ input_prompt3 = st.secrets["input_prompt3"]
 if submit1:
     if uploaded_file is not None:
         pdf_content=input_pdf_setup(uploaded_file,filename)
-        # st.write(pdf_content)
         response=get_gemini_response(input_text,pdf_content,input_prompt1)
         st.subheader("The Repsonse is")
         st.write(response)
@@ -129,7 +126,6 @@ if submit1:
 elif submit2:
     if uploaded_file is not None:
         pdf_content=input_pdf_setup(uploaded_file,filename)
-        # st.write(pdf_content)
         response=get_gemini_response(input_text,pdf_content,input_prompt2)
         st.subheader("The Repsonse is")
         st.write(response)
