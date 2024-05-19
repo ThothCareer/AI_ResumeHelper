@@ -98,46 +98,97 @@ if uploaded_file is not None:
     filename = uploaded_file.name
     st.write({filename})
 
+submit1 = st.button("Improve My Resume")
 
+# submit1 = st.button("Tell Me About the Resume")
 
-submit1 = st.button("Tell Me About the Resume")
+# submit2 = st.button("Keywords (Not) in Resume?")
 
-submit2 = st.button("Keywords (Not) in Resume?")
-
-submit3 = st.button("Percentage match & Final Evaluation")
+# submit3 = st.button("Percentage match & Final Evaluation")
 
 
 input_prompt1 = st.secrets["input_prompt1"]
 
-input_prompt2 = st.secrets["input_prompt2"]
+# input_prompt1 = """
+# As an experienced HR professional with a background in the biotechnology and pharmaceutical industry, your responsibility is to meticulously scrutinize the provided resume in comparison to the job description. 
+# Offer a professional and objective assessment regarding the alignment of the candidate's profile with the role. 
+# Emphasize both the strengths and weaknesses of the candidate concerning the specified job requirements. Your evaluation should be rigorous and incisive. Note that the candidate is an individual, so refrain from using impersonal pronouns such as 'they' or 'them'.
 
-input_prompt3 = st.secrets["input_prompt3"]
+# """
 
+
+# input_prompt2 = st.secrets["input_prompt2"]
+
+# input_prompt1 =  
+# """
+# For Section 1, Employed as a sophisticated application tracking system, meticulously dissect the given job description to compile a comprehensive table delineating essential keywords encompassing both technical and soft skills.
+# Utilizing the initial table as a foundation, craft a secondary table categorizing the identified keywords based on their presence within the provided resume. Present the response in a structured format consisting of two columns.
+# Ensure consistency in results by following a standardized methodology for keyword extraction and resume analysis.
+
+
+# For Section 2, Imagine you are an adept ATS (Applicant Tracking System) scanner, well-versed in the nuances of the biotechnology and pharmaceutical industry, as well as the functionality of ATS systems. 
+# Your objective is to assess a resume in comparison to the provided job description and determine the percentage of match between the two. 
+# Initially, present the output as a percentage, followed by a list of missing keywords, and conclude with your final thoughts.
+
+
+
+# """
+
+
+
+# input_prompt3 = st.secrets["input_prompt3"]
+# input_prompt1 = """Employed as a sophisticated application tracking system, meticulously dissect the given job description to compile a comprehensive table delineating essential keywords encompassing both technical and soft skills.
+# Utilizing the initial table as a foundation, craft a secondary table categorizing the identified keywords based on their presence within the provided resume. Present the response in a structured format consisting of two columns.
+# Ensure consistency in results by following a standardized methodology for keyword extraction and resume analysis.
+# """
+
+input_prompt2 = """Employed as a sophisticated application tracking system, meticulously dissect the given job description to compile a comprehensive table delineating essential keywords encompassing both technical and soft skills.
+Utilizing the initial table as a foundation, craft a secondary table categorizing the identified keywords based on their presence within the provided resume. Present the response in a structured format consisting of two columns.
+Ensure consistency in results by following a standardized methodology for keyword extraction and resume analysis.
+
+"""
+
+
+input_prompt3 = """
+Imagine you are an adept ATS (Applicant Tracking System) scanner, well-versed in the nuances of the biotechnology and pharmaceutical industry, as well as the functionality of ATS systems. 
+Your objective is to assess a resume in comparison to the provided job description and determine the percentage of match between the two. 
+Initially, present the output as a percentage, followed by a list of missing keywords, and conclude with your final thoughts.
+"""
 
 if submit1:
     if uploaded_file is not None:
         pdf_content=input_pdf_setup(uploaded_file,filename)
-        response=get_gemini_response(input_text,pdf_content,input_prompt1)
+        response_1=get_gemini_response(input_text,pdf_content,input_prompt1)
         st.subheader("The Repsonse is")
-        st.write(response)
+        st.write(response_1)
+
+        response_2=get_gemini_response(input_text,pdf_content,input_prompt2)
+        st.subheader("The Repsonse is")
+        st.write(response_2)
+
+        response_3=get_gemini_response(input_text,pdf_content,input_prompt3)
+        st.subheader("The Repsonse is")
+        st.write(response_3)
+
+
     else:
         st.write("Please uplaod the resume")
 
-elif submit2:
-    if uploaded_file is not None:
-        pdf_content=input_pdf_setup(uploaded_file,filename)
-        response=get_gemini_response(input_text,pdf_content,input_prompt2)
-        st.subheader("The Repsonse is")
-        st.write(response)
-    else:
-        st.write("Please uplaod the resume")
+# elif submit2:
+#     if uploaded_file is not None:
+#         pdf_content=input_pdf_setup(uploaded_file,filename)
+#         response=get_gemini_response(input_text,pdf_content,input_prompt2)
+#         st.subheader("The Repsonse is")
+#         st.write(response)
+#     else:
+#         st.write("Please uplaod the resume")
 
 
-elif submit3:
-    if uploaded_file is not None:
-        pdf_content=input_pdf_setup(uploaded_file,filename)
-        response=get_gemini_response(input_prompt3,pdf_content,input_text)
-        st.subheader("The Repsonse is")
-        st.write(response)
-    else:
-        st.write("Please uplaod the resume")
+# elif submit3:
+#     if uploaded_file is not None:
+#         pdf_content=input_pdf_setup(uploaded_file,filename)
+#         response=get_gemini_response(input_prompt3,pdf_content,input_text)
+#         st.subheader("The Repsonse is")
+#         st.write(response)
+#     else:
+#         st.write("Please uplaod the resume")

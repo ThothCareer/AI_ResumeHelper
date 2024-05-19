@@ -1,3 +1,5 @@
 streamlit
+requests==2.31.0
 google-generativeai
 pypdf
+python-docx
