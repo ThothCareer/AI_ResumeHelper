@@ -133,7 +133,7 @@ else:
         if uploaded_file is not None:
             pdf_content=input_pdf_setup(uploaded_file,filename)
             response=get_gemini_response(input_text,pdf_content,input_prompt1)
-            st.subheader("The Repsonse is")
+            st.subheader("Evaluate Fit & Suggestions")
             st.write(response)
         else:
             st.write("Please uplaod the resume")
@@ -142,7 +142,7 @@ else:
         if uploaded_file is not None:
             pdf_content=input_pdf_setup(uploaded_file,filename)
             response=get_gemini_response(input_text,pdf_content,input_prompt2)
-            st.subheader("The Repsonse is")
+            st.subheader("Keywords in JD")
             st.write(response)
         else:
             st.write("Please uplaod the resume")
