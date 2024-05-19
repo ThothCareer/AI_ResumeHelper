@@ -12,3 +12,8 @@ venv/
 
 # Ignore .streamlit directories
 .streamlit/
+
+
+# Ignore pycache and devcontainer
+__pycache__
+.devcontainer
