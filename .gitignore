@@ -19,3 +19,6 @@ __pycache__/
 
 # Ignore devcontainer
 devcontainer/
+
+# Ignore DS_Store
+.DS_Store/
