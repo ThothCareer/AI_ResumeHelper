@@ -63,8 +63,8 @@ def input_pdf_setup(uploaded_file,filename):
 
 
 
-st.header("ATS Resume Helper")
-st.subheader("Powered by Google Gemini Pro | Developed by Thoth Career")
+st.header("ATS Resume Helper (Biotech/Pharm)")
+st.subheader("Powered by Google Gemini Pro")
 
 ## -------------------------------------------------------------------------------------------------
 ## Not logged in -----------------------------------------------------------------------------------
