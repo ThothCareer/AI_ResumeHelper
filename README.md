@@ -5,9 +5,9 @@ Thoth ATS Resume Helper is an AI-driven tool designed to enhance your resume eva
 
 # Features
 AI-Powered Analysis: Leverages the Google Gemini Pro model to provide in-depth analysis and feedback on your resume.
-HR Expertise Simulation: Emulates an experienced HR professional to offer detailed evaluations of your resume against specific job descriptions.
-ATS Keyword Analysis: Simulates an advanced Applicant Tracking System to extract and evaluate keywords from job descriptions and resumes.
-User-Friendly Interface: Provides an intuitive interface for easy resume upload and feedback retrieval.
+* HR Expertise Simulation: Emulates an experienced HR professional to offer detailed evaluations of your resume against specific job descriptions.
+* ATS Keyword Analysis: Simulates an advanced Applicant Tracking System to extract and evaluate keywords from job descriptions and resumes.
+* User-Friendly Interface: Provides an intuitive interface for easy resume upload and feedback retrieval.
 
 
 
