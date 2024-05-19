@@ -1,17 +1,16 @@
-# A Streamlit App That Can Help You Evaluate and Improve Your Resume
+## Thoth ATS Resume Helper
 
-Google Gemini Pro model: emini-1.0-pro-001
-
-
-## Google AI Resume Evaluator
 # Overview
-The Google AI Resume Evaluator is a cutting-edge tool designed to help you evaluate and improve your resume. Leveraging the power of the Google Gemini Pro model (Gemini-1.0-pro-001), this tool provides detailed feedback on your resume, highlighting areas for improvement and helping you stand out in competitive job markets.
+Thoth ATS Resume Helper is an AI-driven tool designed to enhance your resume evaluation and improvement process. By utilizing the advanced capabilities of the Google Gemini Pro model (emini-1.0-pro-001), this tool offers precise and comprehensive feedback to help you align your resume with job requirements in the biotechnology and pharmaceutical industries.
 
 # Features
-AI-Powered Analysis: Utilizes the advanced capabilities of the Google Gemini Pro model to analyze your resume comprehensively.
-Skill Gap Identification: Identifies key skills and experiences that are missing from your resume based on the job description provided.
-Detailed Feedback: Offers in-depth feedback on how to improve your resume to better align with job requirements.
-User-Friendly Interface: Simple and intuitive interface for easy resume upload and feedback retrieval.
+AI-Powered Analysis: Leverages the Google Gemini Pro model to provide in-depth analysis and feedback on your resume.
+HR Expertise Simulation: Emulates an experienced HR professional to offer detailed evaluations of your resume against specific job descriptions.
+ATS Keyword Analysis: Simulates an advanced Applicant Tracking System to extract and evaluate keywords from job descriptions and resumes.
+User-Friendly Interface: Provides an intuitive interface for easy resume upload and feedback retrieval.
+
+
+
 
 # Contact info:
 thothcareer@gmail.com
