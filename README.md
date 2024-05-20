@@ -11,6 +11,3 @@ AI-Powered Analysis: Leverages the Google Gemini Pro model to provide in-depth a
 
 
 
-
-# Contact info:
-thothcareer@gmail.com
